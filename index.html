@@ -47,6 +47,7 @@
    <p class="hint">Текст подсказки от ChatLabs</p> <!--Проверка-->
    <button id="button" class="button">Показать или скрыть основную кнопку </button> 
    <button id="btnEdit" class="button">Активировать кнопку / сделать неактивной</button> <!--Кнопка, чтобы сделать кнопку активной/неактивной-->
+</body>   
 <script>
   let telegramAppChatLabs = window.Telegram.WebApp; //нужно получить объект window.Telegram.WebApp Телеграмма
    telegramAppChatLabs.expand(); //разворачиваем на все окно
@@ -60,5 +61,6 @@ let button = document.getElementById("button"); //Используем getElemen
          telegramAppChatLabs.MainButton.show() //если булевое значение isVisible === false, то показываем кнопку, используя show() 
       }
    });   
-</script>   
-</body>
+</script>
+</html>   
+
