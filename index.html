@@ -45,23 +45,21 @@
    <p>Здесь текст о компании ChatLabs</p> <!--Используем для проверки-->
    <a class="link" href="https://telegram/chatlabs.ru/">Ссылка на ChatLabs</a> <!--Используем для проверки, что вебприложение Телеграмма работает-->
    <p class="hint">Текст подсказки от ChatLabs</p> <!--Проверка-->
-   <input type="text" id="name" name="name" />
    <button id="button" class="button">Показать или скрыть основную кнопку </button> 
    <button id="btnEdit" class="button">Активировать кнопку / сделать неактивной</button> <!--Кнопка, чтобы сделать кнопку активной/неактивной-->
 </body>   
 <script>
-  let tgApp = window.Telegram.WebApp; //нужно получить объект window.Telegram.WebApp Телеграмма
-  tgApp.expand(); //разворачиваем на все окно
-  tgApp.MainButton.enable()
-  tgApp.MainButton.text = "Кнопка ChatLabst"; //Задаем текст кнопки 
-  let button = document.getElementById("button"); //Используем getElementById, чтобы получить кнопку, которую сделали выше и которой присвоили id и class
-  button.addEventListener('click', function(){ //Используем addEventListener, чтобы слушать клик по кнопке 
-    if (tgApp.MainButton.isVisible){ //проверяем, видима ли кнопка, при помощи isVisible, который предоставляет нам API TG
-      tgApp.MainButton.hide() //прячем кнопку
-    }
-    else{ 
-         tgApp.show() //если булевое значение isVisible === false, то показываем кнопку, используя show() 
-    }
+  let telegramAppChatLabs = window.Telegram.WebApp; //нужно получить объект window.Telegram.WebApp Телеграмма
+   telegramAppChatLabs.expand(); //разворачиваем на все окно
+   telegramAppChatLabs.MainButton.text = "Кнопка ChatLabst"; //Задаем текст кнопки 
+let button = document.getElementById("button"); //Используем getElementById, чтобы получить кнопку, которую сделали выше и которой присвоили id и class
+   button.addEventListener('click', function(){ //Используем addEventListener, чтобы слушать клик по кнопке 
+      if (telegramAppChatLabs.MainButton.isVisible){ //проверяем, видима ли кнопка, при помощи isVisible, который предоставляет нам API TG
+         telegramAppChatLabs.MainButton.hide() //прячем кнопку
+      }
+      else{ 
+         telegramAppChatLabs.MainButton.show() //если булевое значение isVisible === false, то показываем кнопку, используя show() 
+      }
    });   
 </script>
 </html>   
