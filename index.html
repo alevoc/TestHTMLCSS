@@ -52,6 +52,7 @@
 <script>
   let tgApp = window.Telegram.WebApp; //нужно получить объект window.Telegram.WebApp Телеграмма
   tgApp.expand(); //разворачиваем на все окно
+  tgApp.MainButton.enable()
   tgApp.MainButton.text = "Кнопка ChatLabst"; //Задаем текст кнопки 
   let button = document.getElementById("button"); //Используем getElementById, чтобы получить кнопку, которую сделали выше и которой присвоили id и class
   button.addEventListener('click', function(){ //Используем addEventListener, чтобы слушать клик по кнопке 
