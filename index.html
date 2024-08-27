@@ -8,26 +8,5 @@
 </head>
 <body>
     <h1>Welcome to the Telegram Web Apppp!</h1>
-    <button id="sendDataButton">Send Data to Bott</button>
-
-    <script>
-        // Initialize the Telegram Web App interface
-        const tg = window.Telegram.WebApp;
-
-        // Log user data
-        //console.log(tg.initDataUnsafe);
-
-        // Set up the button to send data back to the bot
-        document.getElementById('sendDataButton').addEventListener('click', () => {
-            const dataToSend = "Hello from the Web App!";
-            tg.sendData(dataToSend); // This sends data back to the bot
-
-            // Optionally close the web app after sending data
-            tg.close();
-        });
-
-        // You can also auto-close the app after a certain event or delay
-        // setTimeout(() => tg.close(), 5000); // Closes after 5 seconds
-    </script>
 </body>
 </html>
