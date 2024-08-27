@@ -1,66 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Telegram WebApps API от ChatLabs</title>
-   <script src="https://telegram.org/js/telegram-web-app.js"></script> <style>
-      body{
-         display: flex;
-         color: var(--tg-theme-text-color);
-         background: var(--tg-theme-bg-color);
-         align-items: center;
-         flex-direction: column;
-         font-size: 20px;
-      }
-
-      .hint{
-         color: var(--tg-theme-hint-color);
-      }
-
-      .link{
-         color: var(--tg-theme-link-color);
-      }
-
-      .button{
-         background: var(--tg-theme-button-color);
-         color: var(--tg-theme-button-text-color);
-         border: none;
-         font-size: 20px;
-      }
-
-      .button:not(:last-child){
-         margin-bottom: 15px
-      }
-
-      #usercard{
-         text-align: center;
-      }
-   </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Web App</title>
 </head>
 <body>
-   <div id="usercard"> <!--Карточка профиля пользователя, который обращается к веб-приложению-->
-   </div>
-   <p>Здесь текст о компании ChatLabs</p> <!--Используем для проверки-->
-   <a class="link" href="https://telegram/chatlabs.ru/">Ссылка на ChatLabs</a> <!--Используем для проверки, что вебприложение Телеграмма работает-->
-   <p class="hint">Текст подсказки от ChatLabs</p> <!--Проверка-->
-   <button id="button" class="button">Показать или скрыть основную кнопку </button> 
-   <button id="btnEdit" class="button">Активировать кнопку / сделать неактивной</button> <!--Кнопка, чтобы сделать кнопку активной/неактивной-->
-</body>   
-<script>
-  let telegramAppChatLabs = window.Telegram.WebApp; //нужно получить объект window.Telegram.WebApp Телеграмма
-   telegramAppChatLabs.expand(); //разворачиваем на все окно
-   telegramAppChatLabs.MainButton.text = "Кнопка ChatLabst"; //Задаем текст кнопки 
-let button = document.getElementById("button"); //Используем getElementById, чтобы получить кнопку, которую сделали выше и которой присвоили id и class
-   button.addEventListener('click', function(){ //Используем addEventListener, чтобы слушать клик по кнопке 
-      if (telegramAppChatLabs.MainButton.isVisible){ //проверяем, видима ли кнопка, при помощи isVisible, который предоставляет нам API TG
-         telegramAppChatLabs.MainButton.hide() //прячем кнопку
-      }
-      else{ 
-         telegramAppChatLabs.MainButton.show() //если булевое значение isVisible === false, то показываем кнопку, используя show() 
-      }
-   });   
-</script>
-</html>   
+    <h1>Welcome to the Telegram Web App!</h1>
+    <button id="sendDataButton">Send Data to Bot</button>
 
+    <script>
+        // Initialize the Telegram Web App interface
+        const tg = window.Telegram.WebApp;
+
+        // Log user data
+        console.log(tg.initDataUnsafe);
+
+        // Set up the button to send data back to the bot
+        document.getElementById('sendDataButton').addEventListener('click', () => {
+            const dataToSend = "Hello from the Web App!";
+            tg.sendData(dataToSend); // This sends data back to the bot
+
+            // Optionally close the web app after sending data
+            tg.close();
+        });
+
+        // You can also auto-close the app after a certain event or delay
+        // setTimeout(() => tg.close(), 5000); // Closes after 5 seconds
+    </script>
+</body>
+</html>
